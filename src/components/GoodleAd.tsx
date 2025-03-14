@@ -1,23 +1,37 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+declare global {
+  interface Window {
+    adsbygoogle?: { push: () => void }[];
+  }
+}
 
 export default function GoogleAd() {
   const NEXT_PUBLIC_ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-  const NEXT_PUBLIC_ADSENSE_SLOT = process.env.NEXT_PUBLIC_ADSENSE_SLOT;
+  const adRef = useRef(null);
 
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.log("Error", err);
+    if (typeof window !== "undefined" && window.adsbygoogle && adRef.current) {
+      try {
+        window.adsbygoogle.push({
+          push: function (): void {
+            throw new Error("Function not implemented.");
+          },
+        });
+      } catch (err) {
+        console.error("Adsbygoogle error:", err);
+      }
     }
   }, []);
 
   return (
     <>
       <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub${NEXT_PUBLIC_ADSENSE_CLIENT}`}
         crossOrigin="anonymous"
         async
