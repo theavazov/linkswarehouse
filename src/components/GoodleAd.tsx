@@ -32,7 +32,7 @@ export default function GoogleAd() {
       <Script
         id="adsbygoogle-init"
         strategy="afterInteractive"
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub${NEXT_PUBLIC_ADSENSE_CLIENT}`}
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${NEXT_PUBLIC_ADSENSE_CLIENT}`}
         crossOrigin="anonymous"
         async
       />

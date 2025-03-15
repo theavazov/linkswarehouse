@@ -1,5 +1,14 @@
 import GoogleAd from "@/components/GoodleAd";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Links Warehouse",
+  description: "Warehouse of all useful links",
+  other: {
+    "google-site-verification": `${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`,
+  },
+};
 
 export default function Home() {
   return (
