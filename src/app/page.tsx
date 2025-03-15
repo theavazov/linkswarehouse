@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Links Warehouse",
   description: "Warehouse of all useful links",
   other: {
-    "google-site-verification": `${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`,
+    "google-adsense-account": `ca-pub-${process.env.NEXT_PUBLIC_ADSENSE_CLIENT}`,
   },
 };
 
