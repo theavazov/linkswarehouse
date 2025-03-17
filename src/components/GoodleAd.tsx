@@ -31,10 +31,10 @@ export default function GoogleAd() {
     <>
       <Script
         id="adsbygoogle-init"
+        async
         strategy="afterInteractive"
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-${NEXT_PUBLIC_ADSENSE_CLIENT}`}
         crossOrigin="anonymous"
-        async
       />
       <ins
         className="adsbygoogle"
